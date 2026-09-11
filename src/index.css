@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+:root {
+  --background: #0f0f0f;
+  --foreground: #1f1f1f;
+  --border: #272727;
+  --primary: #14ee05;
+}
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-border: var(--border);
+  --color-primary: var(--primary);
+}
+
+.plus-jakarta {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-optical-sizing: auto;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.space {
+  font-family: "Space Grotesk", sans-serif;
+  font-optical-sizing: auto;
+  color: white;
+}
+
+.grid-area {
+  background-image: linear-gradient(
+    to bottom,
+    #000000,
+    #021801,
+    #064702,
+    #0c8f03,
+    #14ee05
+  );
+}
+
+.grid-info {
+  background-image: linear-gradient(
+    to bottom,
+    #14141467 0%,
+    #141414 80%,
+    #141414
+  );
+}
