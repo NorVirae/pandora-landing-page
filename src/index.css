@@ -4,7 +4,7 @@
   --background: #0f0f0f;
   --foreground: #1f1f1f;
   --border: #272727;
-  --primary: #14ee05;
+  --primary: rgb(20, 238, 5);
 }
 
 @theme {
@@ -26,6 +26,12 @@
   color: white;
 }
 
+.space2 {
+  font-family: "Space Grotesk", sans-serif;
+  font-optical-sizing: auto;
+  color: var(--background);
+}
+
 .grid-area {
   background-image: linear-gradient(
     to bottom,
@@ -44,4 +50,37 @@
     #141414 80%,
     #141414
   );
+}
+
+.bg-pitch {
+  background-image: url(./assets/bg.svg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.advantage-card {
+  padding: 16px;
+  border-radius: 12px;
+  background: rgba(30, 30, 30, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.bg-team {
+  background-image: url(./assets/team.svg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
 }

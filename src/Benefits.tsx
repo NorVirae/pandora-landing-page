@@ -1,6 +1,12 @@
 import compute from "./assets/compute.webp";
 import agent from "./assets/agent.webp";
 
+const cardShadow =
+  "inset 0 5px 7px rgba(255,255,255,0.18)," +
+  "inset 0 0 0 rgba(0, 0, 0,0)," +
+  "inset 0 -3px 0 rgba(0,0,0,0.45)," +
+  "inset 0 0 0 rgba(0,0,0,0)," +
+  "0 8px 32px rgba(0,0,0,0.55)";
 const benefits = [
   {
     index: 1,
@@ -46,14 +52,7 @@ const Benefits = () => {
               >
                 <div
                   className="bg-foreground p-3 lg:p-10"
-                  style={{
-                    boxShadow:
-                      /* inner top highlight */ "inset 0 5px 7px rgba(255,255,255,0.18)," +
-                      /* inner left highlight */ "inset 0 0 0 rgba(0, 0, 0,0)," +
-                      /* inner bottom shadow */ "inset 0 -3px 0 rgba(0,0,0,0.45)," +
-                      /* inner right shadow */ "inset 0 0 0 rgba(0,0,0,0)," +
-                      /* outer depth / lift */ "0 8px 32px rgba(0,0,0,0.55)",
-                  }}
+                  style={{ boxShadow: cardShadow }}
                 >
                   <h2 className="space text-2xl font-medium tracking-tight lg:text-3xl">
                     {benefit.title}

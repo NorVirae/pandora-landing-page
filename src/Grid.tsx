@@ -8,7 +8,7 @@ const Grid = () => {
     <section className="p-5">
       {/* Pandora Node */}
       <div className="grid-area relative isolate h-[50vh] rounded-b-lg lg:h-screen">
-        <p className="space mt-10 text-center text-2xl font-medium tracking-tight capitalize lg:text-5xl">
+        <p className="space pt-10 text-center text-2xl font-medium tracking-tight capitalize lg:text-5xl">
           One node. Five ways it earns. <br className="hidden md:block" />
           Here's what it puts out.
         </p>
@@ -36,7 +36,6 @@ const Grid = () => {
             </h2>
 
             <span className="text-sm lg:text-base">
-              {" "}
               Enough to help keep 6 homes running around the clock.
             </span>
           </div>

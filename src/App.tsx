@@ -5,6 +5,8 @@ import Lenis from "lenis";
 import Hero from "./Hero";
 import Benefits from "./Benefits";
 import Grid from "./Grid";
+import Advantages from "./Advantages";
+import Team from "./Team";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -12,7 +14,7 @@ function App() {
   // Initialize Lenis smooth scrolling with GSAP ticker sync
   useEffect(() => {
     const lenis = new Lenis({
-      duration: 1.2,
+      duration: .2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
     });
 
@@ -36,6 +38,8 @@ function App() {
       <Hero />
       <Benefits />
       <Grid />
+      <Advantages />
+      <Team />
     </main>
   );
 }
