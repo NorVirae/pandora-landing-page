@@ -134,11 +134,12 @@ const Hero = () => {
 
   return (
     <div
+      id="home"
       ref={containerRef}
       className="relative min-h-screen w-full overflow-hidden"
     >
       {/* Underneath Layer: Power Section (Revealed via Aperture) */}
-      <div className="power-info absolute inset-0 z-0 flex min-h-screen w-full flex-col p-5 lg:flex-row lg:gap-10">
+      <div id="benefits" className="power-info absolute inset-0 z-0 flex min-h-screen w-full flex-col p-5 lg:flex-row lg:gap-10">
         <div className="border-border h-full basis-1/2 border">
           <img src={power} className="h-full w-full" alt="power grid" />
         </div>

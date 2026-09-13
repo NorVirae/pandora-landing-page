@@ -34,7 +34,7 @@ const team = [
 ];
 const Team = () => {
   return (
-    <section className="bg-team mt-40 flex h-screen flex-col p-5 py-10 lg:justify-between">
+    <section id="about" className="bg-team mt-40 flex lg:h-screen flex-col p-5 pb-10 py-10 lg:justify-between">
       <div className="flex flex-col justify-between gap-3 lg:flex-row lg:gap-0">
         <h2 className="space text-2xl font-medium tracking-tight capitalize lg:max-w-xl lg:text-5xl">
           Built by operators, not spectators.
@@ -47,7 +47,7 @@ const Team = () => {
         </p>
       </div>
 
-      <div className="scrollbar-hide mt-5 flex h-64 w-full flex-nowrap gap-x-5 overflow-x-auto lg:mt-0 lg:h-auto lg:basis-[75%] lg:gap-x-10">
+      <div className="scrollbar-hide mt-5 flex h-64 w-full flex-nowrap gap-x-5 overflow-x-auto lg:mt-10 lg:h-auto lg:basis-[80%] lg:gap-x-10">
         {team.map((member) => (
           <div
             key={member.index}

@@ -3,6 +3,7 @@
 :root {
   --background: #0f0f0f;
   --foreground: #1f1f1f;
+  --navbar:#262626;
   --border: #272727;
   --primary: rgb(20, 238, 5);
 }
@@ -10,6 +11,7 @@
 @theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-navbar: var(--navbar);
   --color-border: var(--border);
   --color-primary: var(--primary);
 }
@@ -59,17 +61,6 @@
   background-repeat: no-repeat;
 }
 
-.advantage-card {
-  padding: 16px;
-  border-radius: 12px;
-  background: rgba(30, 30, 30, 0.82);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(8px);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.06),
-    0 8px 24px rgba(0, 0, 0, 0.4);
-}
-
 .bg-team {
   background-image: url(./assets/team.svg);
   background-size: cover;
@@ -83,4 +74,29 @@
 }
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
+}
+
+.bg-cta {
+  background-image: url(./assets/cta.svg);
+  inset: 0;
+  position: absolute;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -1;
+}
+
+.bg-cta::after {
+  content: "";
+  background-image: radial-gradient(circle at center, transparent 30%,var(--background) 55%);
+  inset: 0;
+  position: absolute;
+  background-size: cover;
+  background-position: center center;
+}
+
+
+html{
+  scrollbar-width: auto;
+  scrollbar-color: var(--primary) var(--background);
 }

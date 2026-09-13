@@ -13,7 +13,7 @@ const Btn = ({ className = "" }: { className?: string }) => {
             "inset 0 -4px 0 rgba(0,0,0,0.6)," +
             "0 8px 32px rgba(0,120,0,0.35)",
         }}
-        className="text-background space2 bg-primary flex w-fit cursor-pointer items-center rounded-lg px-5 py-3 font-medium"
+        className="text-background space2 bg-primary flex w-fit cursor-pointer items-center rounded-lg lg:px-5 px-4 py-3 font-medium"
       >
         Book A Call
       </button>
