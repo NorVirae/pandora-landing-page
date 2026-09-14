@@ -2,6 +2,7 @@ import { useRef } from "react";
 import power from "./assets/power.webp";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import AnimatedText from "./components/AnimatedText";
 
 const Hero = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -35,7 +36,7 @@ const Hero = () => {
         scrollTrigger: {
           trigger: containerRef.current,
           start: "top top",
-          end: "+=200%",
+          end: "+=150%",
           scrub: 1,
           pin: true,
           anticipatePin: 1,
@@ -128,6 +129,9 @@ const Hero = () => {
         },
         0.6,
       );
+
+      // 5. Hold power section on screen while next panel slides over it
+      tl.to({}, { duration: 0.5 });
     },
     { scope: containerRef, dependencies: [] },
   );
@@ -136,13 +140,10 @@ const Hero = () => {
     <div
       id="home"
       ref={containerRef}
-      className="relative min-h-screen w-full overflow-hidden"
+      className="relative h-screen bg-hero min-h-screen w-full overflow-hidden"
     >
       {/* Underneath Layer: Power Section (Revealed via Aperture) */}
-      <div
-       
-        className="power-info panel absolute inset-0 z-0 flex min-h-screen w-full flex-col p-5 lg:flex-row lg:gap-10"
-      >
+      <div className="power-info bg-background absolute inset-0 z-0 flex h-screen min-h-screen w-full flex-col p-5 lg:flex-row lg:gap-10">
         <div className="border-border h-full basis-1/2 border">
           <img src={power} className="h-full w-full" alt="power grid" />
         </div>
@@ -192,13 +193,16 @@ const Hero = () => {
 
               <div className="basis-[15%] bg-white" />
             </div>
-            <h2 className="space pr-2 text-end text-2xl font-medium tracking-tight capitalize lg:ml-[50%] lg:text-start lg:text-3xl">
-              Solar that lights up <br /> homes, first.
-            </h2>
+            <AnimatedText
+              as="h2"
+              text={"Solar that lights up\nhomes, first."}
+              className="space pr-2 text-end text-2xl font-medium tracking-tight capitalize lg:ml-[50%] lg:text-start lg:text-3xl"
+            />
           </div>
         </div>
       </div>
 
+      
       {/* Foreground Layer: Hero Dark Overlay with SVG Mask Aperture */}
       <div
         ref={heroOverlayRef}
@@ -333,10 +337,14 @@ const Hero = () => {
       >
         {/* Bottom Hero Write Up & Scroll Cue */}
         <div className="relative flex w-full flex-col items-start justify-between gap-y-10 md:flex-row md:items-end">
-          <h1 className="space text-3xl leading-tight font-medium sm:text-4xl md:text-5xl">
-            Power and compute, <br />
-            from the same sun
-          </h1>
+          <AnimatedText
+            as="h1"
+            text={"Power and compute,\nfrom the same sun"}
+            className="space text-3xl leading-tight font-medium sm:text-4xl md:text-5xl"
+            scrollTrigger={false}
+            delay={0.2}
+            stagger={0.06}
+          />
 
           <p className="text-xs leading-relaxed md:w-md md:text-sm">
             Pandora builds solar microgrids that light homes and run AI. One

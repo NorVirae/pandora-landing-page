@@ -13,31 +13,20 @@ import Navbar from "./components/navbar";
 gsap.registerPlugin(ScrollTrigger);
 
 function App() {
-  // Initialize Lenis smooth scrolling with GSAP ticker sync
-  useEffect(() => {
-    const lenis = new Lenis({
-      duration: 0.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-    });
+  const lenis = new Lenis({
+    lerp: 0.05,
+  });
 
-    lenis.on("scroll", ScrollTrigger.update);
+  const raf = (time: number) => {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+  };
 
-    const updateTicker = (time: number) => {
-      lenis.raf(time * 1000);
-    };
-
-    gsap.ticker.add(updateTicker);
-    gsap.ticker.lagSmoothing(0);
-
-    return () => {
-      gsap.ticker.remove(updateTicker);
-      lenis.destroy();
-    };
-  }, []);
+  requestAnimationFrame(raf);
 
   return (
-    <main className="plus-jakarta bg-background min-h-screen text-white selection:bg-[#14EE05] selection:text-black relative">
-      <Navbar/>
+    <main className="plus-jakarta bg-background relative min-h-screen text-white selection:bg-[#14EE05] selection:text-black">
+      <Navbar />
       <Hero />
       <Benefits />
       <Grid />

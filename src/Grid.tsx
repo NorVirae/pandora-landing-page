@@ -3,15 +3,19 @@ import battery from "./assets/battery.webp";
 import sessions from "./assets/sessions.webp";
 import agents from "./assets/agents.webp";
 import load from "./assets/load.webp";
+import AnimatedText from "./components/AnimatedText";
+
 const Grid = () => {
   return (
-    <section id="benefits" className="p-5">
+    <section id="benefits" className="relative z-40 bg-background p-5">
       {/* Pandora Node */}
       <div className="grid-area relative isolate h-[50vh] rounded-b-lg lg:h-screen">
-        <p className="space pt-10 text-center text-2xl font-medium tracking-tight capitalize lg:text-5xl">
-          One node. Five ways it earns. <br className="hidden md:block" />
-          Here's what it puts out.
-        </p>
+        <AnimatedText
+          as="p"
+          text={"One node. Five ways it earns.\nHere's what it puts out."}
+          className="space pt-10 text-center text-2xl font-medium tracking-tight capitalize lg:text-5xl"
+          stagger={0.05}
+        />
 
         <img
           src={node}
@@ -31,9 +35,12 @@ const Grid = () => {
             alt="daily power generation"
           />
           <div className="grid-info absolute bottom-0 left-0 h-1/3 w-full px-4 py-3 lg:h-1/4 lg:px-8">
-            <h2 className="space text-xl font-medium lg:text-2xl">
-              250KWh generated per day
-            </h2>
+            <AnimatedText
+              as="h2"
+              text="250KWh generated per day"
+              className="space text-xl font-medium lg:text-2xl"
+              stagger={0.04}
+            />
 
             <span className="text-sm lg:text-base">
               Enough to help keep 6 homes running around the clock.
@@ -49,9 +56,12 @@ const Grid = () => {
             alt="daily power generation"
           />
           <div className="grid-info absolute bottom-0 left-0 h-1/3 w-full px-4 py-3 lg:h-1/4 lg:px-8">
-            <h2 className="space text-xl font-medium lg:text-2xl">
-              10,000+ AI Agents/Node
-            </h2>
+            <AnimatedText
+              as="h2"
+              text="10,000+ AI Agents/Node"
+              className="space text-xl font-medium lg:text-2xl"
+              stagger={0.04}
+            />
 
             <span className="text-sm lg:text-base">
               Running businesses' automations at a fraction of cloud cost.
@@ -67,9 +77,12 @@ const Grid = () => {
             alt="daily power generation"
           />
           <div className="grid-info absolute bottom-0 left-0 h-1/3 w-full px-4 py-3 lg:h-1/4 lg:px-8">
-            <h2 className="space text-xl font-medium lg:text-2xl">
-              30–40 concurrent AI sessions
-            </h2>
+            <AnimatedText
+              as="h2"
+              text="30–40 concurrent AI sessions"
+              className="space text-xl font-medium lg:text-2xl"
+              stagger={0.04}
+            />
 
             <span className="text-sm lg:text-base">
               Serving thousands of users per day through smart batching.
@@ -85,9 +98,12 @@ const Grid = () => {
             alt="daily power generation"
           />
           <div className="grid-info absolute bottom-0 left-0 h-1/3 w-full px-4 py-3 lg:h-1/4 lg:px-8">
-            <h2 className="space text-xl font-medium lg:text-2xl">
-              2–4 Sec At Light Load
-            </h2>
+            <AnimatedText
+              as="h2"
+              text="2–4 Sec At Light Load"
+              className="space text-xl font-medium lg:text-2xl"
+              stagger={0.04}
+            />
 
             <span className="text-sm lg:text-base">
               Regional edge placement, meaning no overseas round-trip.

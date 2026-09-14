@@ -3,7 +3,7 @@
 :root {
   --background: #0f0f0f;
   --foreground: #1f1f1f;
-  --navbar:#262626;
+  --navbar: #262626;
   --border: #272727;
   --primary: rgb(20, 238, 5);
 }
@@ -88,15 +88,25 @@
 
 .bg-cta::after {
   content: "";
-  background-image: radial-gradient(circle at center, transparent 30%,var(--background) 55%);
+  background-image: radial-gradient(
+    circle at center,
+    transparent 30%,
+    var(--background) 55%
+  );
   inset: 0;
   position: absolute;
   background-size: cover;
   background-position: center center;
 }
 
-
-html{
+html {
   scrollbar-width: auto;
   scrollbar-color: var(--primary) var(--background);
+}
+
+.bg-hero {
+  background-image: url(./assets/hero-bg.svg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }

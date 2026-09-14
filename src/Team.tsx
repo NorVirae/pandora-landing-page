@@ -2,6 +2,7 @@ import jp from "./assets/jp.webp"
 import frank from "./assets/frank.webp"
 import isaac from "./assets/isaac.webp"
 import udo from "./assets/udo.webp";
+import AnimatedText from "./components/AnimatedText";
 
 const team = [
   {
@@ -34,9 +35,12 @@ const Team = () => {
   return (
     <section id="about" className="bg-team mt-40 flex lg:h-screen flex-col p-5 pb-10 py-10 lg:justify-between">
       <div className="flex flex-col justify-between gap-3 lg:flex-row lg:gap-0">
-        <h2 className="space text-2xl font-medium tracking-tight capitalize lg:max-w-xl lg:text-5xl">
-          Built by operators, not spectators.
-        </h2>
+        <AnimatedText
+          as="h2"
+          text="Built by operators, not spectators."
+          className="space text-2xl font-medium tracking-tight capitalize lg:max-w-xl lg:text-5xl"
+          stagger={0.06}
+        />
 
         <p className="text-xs leading-relaxed md:w-md md:text-sm">
           Project Pandora is its most active venture: infrastructure built by

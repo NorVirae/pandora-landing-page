@@ -69,8 +69,28 @@ const Advantages = () => {
           trigger: section,
           start: "top 70%",
           end: "+=200%",
-          scrub: 1,
+          scrub: 0.1,
         },
+      });
+
+      // Animate advantage cards
+      const cards = section.querySelectorAll(".advantage-card");
+      cards.forEach((card) => {
+        gsap.fromTo(
+          card,
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: "expo.out",
+            scrollTrigger: {
+              trigger: card,
+              start: "top 85%",
+              toggleActions: "play none none none",
+            },
+          },
+        );
       });
     },
     { scope: sectionRef },
@@ -129,7 +149,7 @@ const Advantages = () => {
             <article
               key={advantage.text}
               style={{ boxShadow: cardShadow }}
-              className={`bg-foreground self-start rounded p-5 lg:max-w-none ${advantage.grid}`}
+              className={`advantage-card bg-foreground self-start rounded p-5 lg:max-w-none ${advantage.grid}`}
             >
               <img src={advantage.icon} alt="" className="h-10 w-10 shrink-0" />
               <p className="mt-4 text-sm leading-relaxed">{advantage.text}</p>

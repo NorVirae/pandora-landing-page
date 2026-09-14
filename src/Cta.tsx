@@ -3,6 +3,8 @@ import tlAnchor from "./assets/tl.svg"
 import blAnchor from "./assets/bl.svg";
 import trAnchor from "./assets/tr.svg";
 import brAnchor from "./assets/br.svg";
+import AnimatedText from "./components/AnimatedText";
+
 const Cta = () => {
   return (
     <section className="relative isolate flex h-screen flex-col items-center justify-center gap-y-5 overflow-clip px-5 lg:gap-y-10">
@@ -30,9 +32,12 @@ const Cta = () => {
       />
       <div className="bg-cta"></div>
 
-      <h2 className="space text-center text-2xl font-medium tracking-tight text-pretty capitalize lg:max-w-xl lg:text-5xl">
-        Ready to build on power you can trust?
-      </h2>
+      <AnimatedText
+        as="h2"
+        text="Ready to build on power you can trust?"
+        className="space text-center text-2xl font-medium tracking-tight text-pretty capitalize lg:max-w-xl lg:text-5xl"
+        stagger={0.06}
+      />
       <p className="text-center text-xs leading-relaxed md:w-md md:text-sm">
         Whether you're renting compute, deploying an agent, or exploring a
         partnership, the infrastructure is live and ready for you.
