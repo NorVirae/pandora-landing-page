@@ -4,7 +4,7 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import compute from "./assets/compute.webp";
 import agent from "./assets/agent.webp";
-import AnimatedText from "./components/AnimatedText";
+import AnimatedText from "./components/animatedText";
 
 const cardShadow =
   "inset 0 5px 7px rgba(255,255,255,0.18)," +

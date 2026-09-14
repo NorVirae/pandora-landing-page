@@ -3,7 +3,7 @@ import battery from "./assets/battery.webp";
 import sessions from "./assets/sessions.webp";
 import agents from "./assets/agents.webp";
 import load from "./assets/load.webp";
-import AnimatedText from "./components/AnimatedText";
+import AnimatedText from "./components/animatedText";
 
 const Grid = () => {
   return (

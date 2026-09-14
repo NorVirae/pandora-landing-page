@@ -2,7 +2,7 @@ import jp from "./assets/jp.webp"
 import frank from "./assets/frank.webp"
 import isaac from "./assets/isaac.webp"
 import udo from "./assets/udo.webp";
-import AnimatedText from "./components/AnimatedText";
+import AnimatedText from "./components/animatedText";
 
 const team = [
   {

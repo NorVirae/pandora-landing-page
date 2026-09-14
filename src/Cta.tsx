@@ -3,7 +3,7 @@ import tlAnchor from "./assets/tl.svg"
 import blAnchor from "./assets/bl.svg";
 import trAnchor from "./assets/tr.svg";
 import brAnchor from "./assets/br.svg";
-import AnimatedText from "./components/AnimatedText";
+import AnimatedText from "./components/animatedText";
 
 const Cta = () => {
   return (

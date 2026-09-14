@@ -2,7 +2,7 @@ import { useRef } from "react";
 import power from "./assets/power.webp";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import AnimatedText from "./components/AnimatedText";
+import AnimatedText from "./components/animatedText";
 
 const Hero = () => {
   const containerRef = useRef<HTMLDivElement>(null);

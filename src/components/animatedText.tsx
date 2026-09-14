@@ -12,8 +12,7 @@ interface AnimatedTextProps {
   scrollTrigger?: boolean;
   start?: string;
 }
-
-export const AnimatedText = ({
+const AnimatedText = ({
   text,
   className = "",
   as: Component = "h2",
