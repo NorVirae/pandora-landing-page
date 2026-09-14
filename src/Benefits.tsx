@@ -66,9 +66,13 @@ const Benefits = () => {
 
               <div className="relative mt-auto py-10 lg:py-20">
                 <div className="absolute top-0 left-0 flex h-full w-1.25 flex-col justify-between">
-                  <div className="bg-primary basis-[60%]" />
+                  <div
+                    className={`${benefit.index === 1 ? "order-2" : "order-3"} bg-primary basis-[60%]`}
+                  />
 
-                  <div className="basis-[15%] bg-white" />
+                  <div
+                    className={`${benefit.index === 1 ? "order-3" : "order-2"} basis-[15%] bg-white`}
+                  />
 
                   <div className="basis-[15%] bg-white" />
                 </div>

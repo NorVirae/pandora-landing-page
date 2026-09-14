@@ -17,7 +17,7 @@ const menuItems = [
 
 const Navbar = () => {
   return (
-    <nav className="sticky top-5 z-10 flex items-center justify-center">
+    <nav className="fixed w-screen top-5 z-10 flex items-center justify-center">
       <div className="bg-navbar border-border flex h-15 w-4/5 items-center justify-center lg:justify-between rounded border px-3">
         <img src={logo} alt="pandora" />
 

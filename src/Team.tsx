@@ -1,36 +1,34 @@
+import jp from "./assets/jp.webp"
+import frank from "./assets/frank.webp"
+import isaac from "./assets/isaac.webp"
 import udo from "./assets/udo.webp";
 
 const team = [
   {
     index: "0",
-    name: "Guy 1",
-    role: "Founder",
-    img: "",
+    name: "Johnpaul Ezeagwu",
+    role: "C.E.O Pandora Dynamics",
+    img: jp,
   },
   {
     index: "1",
-    name: "Guy 2",
-    role: "Lead Developer",
-    img: "",
+    name: "Mba Norbert Frank",
+    role: "C.T.O Pandoradynamics",
+    img: frank,
   },
   {
     index: "2",
-    name: "Guy 3",
-    role: "Designer",
-    img: "",
+    name: "Edmund Uchechukwu Isaac",
+    role: "C.O.O Pandora Dynamics",
+    img: isaac,
   },
   {
     index: "3",
-    name: "Guy 4",
-    role: "Developer",
-    img: "",
+    name: "Udochukwu Chimbo",
+    role: "Head of Design. Pandora Dynamics",
+    img: udo,
   },
-  {
-    index: "4",
-    name: "Guy 5",
-    role: "Systems Engineer",
-    img: "",
-  },
+ 
 ];
 const Team = () => {
   return (
@@ -54,12 +52,12 @@ const Team = () => {
             className="bg-foreground border-border relative h-full w-64 shrink-0 border [clip-path:polygon(48px_0,100%_0,100%_calc(100%-48px),calc(100%-48px)_100%,0_100%,0_48px)] lg:w-auto lg:basis-1/3"
           >
             
-            <img src={udo} className="object-cover h-full w-full object-center" alt={member.name} />
+            <img src={member.img} className="object-cover h-full w-full object-center" alt={member.name} />
             <div className="absolute bottom-0 left-0 w-full px-2 pb-2 lg:px-5 lg:pb-5 grid-info pt-1">
-              <span className="space text-lg font-medium text-white lg:text-2xl">
+              <span className="space text-base font-medium text-white lg:text-2xl">
                 {member.name}
               </span>
-              <p className="text-sm text-white lg:text-lg">{member.role}</p>
+              <p className="text-xs text-white/70 lg:text-lg">{member.role}</p>
             </div>
           </div>
         ))}
