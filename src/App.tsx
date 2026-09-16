@@ -2,7 +2,6 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import Lenis from "lenis";
 import Hero from "./Hero";
-import Benefits from "./Benefits";
 import Grid from "./Grid";
 import Advantages from "./Advantages";
 import Team from "./Team";
@@ -27,7 +26,6 @@ function App() {
     <main className="plus-jakarta bg-background relative min-h-screen text-white selection:bg-[#14EE05] selection:text-black">
       <Navbar />
       <Hero />
-      <Benefits />
       <Grid />
       <Advantages />
       <Team />

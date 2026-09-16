@@ -20,26 +20,31 @@ const cardShadow =
 
 const advantages = [
   {
+    index: 0,
     icon: icon1,
     text: "Pandora's small, distributed nodes shed heat passively, eliminating the cooling tax entirely.",
     grid: "lg:col-start-2 lg:col-end-6 lg:row-start-1",
   },
   {
+    index: 1,
     icon: icon2,
     text: "Pandora generates its own power on-site, so the multi-year grid queue simply doesn't apply.",
     grid: "lg:col-start-9 lg:col-end-13 lg:row-start-4",
   },
   {
+    index: 2,
     icon: icon3,
     text: "Pandora is capital-light by design, each cluster pays for itself in as little as 6-8 months.",
     grid: "lg:col-start-3 lg:col-end-7 lg:row-start-6",
   },
   {
+    index: 3,
     icon: icon4,
     text: "Pandora runs on thousands of small, battery-backed nodes, so no single failure can take down the network.",
     grid: "lg:col-start-8 lg:col-end-12 lg:row-start-8",
   },
   {
+    index: 4,
     icon: icon5,
     text: "Pandora places compute physically close to African users, cutting latency and cost at the same time.",
     grid: "lg:col-start-2 lg:col-end-6 lg:row-start-10",
@@ -69,7 +74,7 @@ const Advantages = () => {
           trigger: section,
           start: "top 70%",
           end: "+=200%",
-          scrub: 0.1,
+          scrub: 1,
         },
       });
 
@@ -125,7 +130,10 @@ const Advantages = () => {
                 floodOpacity="0.9"
               />
             </filter>
+            {/* Icon Glow Start */}
+            
           </defs>
+          {/* Icon Glow End */}
           <path
             d={LINE_PATH}
             stroke="#ffffff"
@@ -151,7 +159,17 @@ const Advantages = () => {
               style={{ boxShadow: cardShadow }}
               className={`advantage-card bg-foreground self-start rounded p-5 lg:max-w-none ${advantage.grid}`}
             >
-              <img src={advantage.icon} alt="" className="h-10 w-10 shrink-0" />
+              <img
+                src={advantage.icon}
+                alt={"icon" + advantage.index}
+                className="h-10 w-10 shrink-0"
+                style={{
+                  filter:
+                    advantage.index !== 0
+                      ? "url(#icon-glow-green)"
+                      : "drop-shadow(0 0 4px rgba(20, 238, 5, 0.5))",
+                }}
+              />
               <p className="mt-4 text-sm leading-relaxed">{advantage.text}</p>
             </article>
           ))}

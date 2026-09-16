@@ -104,9 +104,3 @@ html {
   scrollbar-color: var(--primary) var(--background);
 }
 
-.bg-hero {
-  background-image: url(./assets/hero-bg.svg);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}

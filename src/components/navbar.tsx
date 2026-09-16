@@ -17,9 +17,9 @@ const menuItems = [
 
 const Navbar = () => {
   return (
-    <nav className="fixed top-5 z-10 flex w-screen items-center justify-center">
-      <div className="bg-navbar border-border flex py-2 w-4/5 items-center justify-center rounded border px-3 lg:justify-between">
-        <img src={logo} className="lg:h-auto h-7" alt="pandora" />
+    <nav className="fixed top-5 z-20 flex w-screen items-center justify-center">
+      <div className="bg-navbar border-border flex w-4/5 items-center justify-center rounded border px-3 py-2 lg:justify-between">
+        <img src={logo} className="h-7 lg:h-auto" alt="pandora" />
 
         <div className="hidden items-center gap-x-10 lg:flex">
           {menuItems.map((item) => (
@@ -27,9 +27,15 @@ const Navbar = () => {
               {item.name}
             </a>
           ))}
-          <button className="text-background flex w-fit cursor-pointer items-center rounded-lg bg-white px-2 py-2 font-medium lg:px-3">
-            Book A Call
-          </button>
+          <a
+            href={`https://wa.me/2349072896677?text=Hi Johnpaul, I'm _____ and I came across Pandora and I'd like to book a call`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <button className="text-background flex w-fit cursor-pointer items-center rounded-lg bg-white px-2 py-2 font-medium lg:px-3">
+              Book A Call
+            </button>
+          </a>
         </div>
       </div>
     </nav>

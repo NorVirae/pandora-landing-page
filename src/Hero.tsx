@@ -1,8 +1,50 @@
 import { useRef } from "react";
-import power from "./assets/power.webp";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import AnimatedText from "./components/animatedText";
+import Benefits from "./Benefits";
+
+// ── Grid background data (from ggg.svg) ──────────────────────────────
+// Horizontal line pairs: each pair of y-values forms a "track"
+const horizontalLines = [
+  { y: 450.5, len: 1852 },
+  { y: 480.5, len: 1852 },
+  { y: 650.5, len: 1728 },
+  { y: 680.5, len: 1728 },
+  { y: 925.5, len: 1728 },
+  { y: 955.5, len: 1728 },
+];
+
+// Diagonal lines going ↘ (top-left to bottom-right at ~60°)
+const diagonalLinesA = [
+  { x1: 376.567, y1: -144.835, x2: 1413.07, y2: 1650.44 },
+  { x1: 346.567, y1: -144.835, x2: 1383.07, y2: 1650.44 },
+  { x1: 559.067, y1: -144.835, x2: 1595.57, y2: 1650.44 },
+  { x1: 589.067, y1: -144.835, x2: 1625.57, y2: 1650.44 },
+  { x1: 847.567, y1: -198.75, x2: 1884.07, y2: 1596.52 },
+  { x1: 878.567, y1: -198.75, x2: 1915.07, y2: 1596.52 },
+];
+
+// Diagonal lines going ↙ (matrix-transformed, top-right to bottom-left)
+const diagonalLinesB = [
+  { tx: 473, ty: 1650.19 },
+  { tx: 503, ty: 1650.19 },
+  { tx: 325, ty: 1596.27 },
+  { tx: 295, ty: 1596.27 },
+  { tx: 3, ty: 1596.27 },
+  { tx: -27, ty: 1596.27 },
+];
+
+// Small green accent segments from the original SVG
+const greenAccents = [
+  { d: "M431 0 L465.5 59.7558" },
+  { d: "M1521 925 L1452 925" },
+  { d: "M1335 450 L1266 450" },
+  { d: "M676.5 988 L642 1047.76" },
+  { d: "M1311.5 198 L1277 257.756" },
+  { d: "M710.5 319 L676 378.756" },
+  { d: "M152 680 L83 680" },
+];
 
 const Hero = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -11,6 +53,7 @@ const Hero = () => {
   const heroContentRef = useRef<HTMLDivElement>(null);
   const heroOverlayRef = useRef<HTMLDivElement>(null);
   const darkBackdropRef = useRef<HTMLDivElement>(null);
+  const gridSvgRef = useRef<SVGSVGElement>(null);
 
   useGSAP(
     () => {
@@ -21,6 +64,27 @@ const Hero = () => {
         !darkBackdropRef.current
       )
         return;
+
+      // ── Animate grid pulse segments ──────────────────────────────
+      const pulses = containerRef.current.querySelectorAll(".grid-pulse");
+      pulses.forEach((pulse, i) => {
+        const pathLength = (pulse as SVGPathElement).getTotalLength?.() || 2073;
+        const segLen = 120; // visible "thick" segment length
+
+        gsap.set(pulse, {
+          strokeDasharray: `${segLen} ${pathLength}`,
+          strokeDashoffset: pathLength,
+        });
+
+        gsap.to(pulse, {
+          strokeDashoffset: -pathLength,
+          duration: 4 + (i % 3) * 1.5,
+          ease: "none",
+          repeat: -1,
+          yoyo: true,
+          delay: i * 0.6,
+        });
+      });
 
       // Logo polygon in clip-path % coords — maps the Pandora logo shape
       // from the SVG viewBox (1920×1080) to % of viewport
@@ -140,75 +204,128 @@ const Hero = () => {
     <div
       id="home"
       ref={containerRef}
-      className="relative h-screen bg-hero min-h-screen w-full overflow-hidden"
+      className="relative h-screen min-h-screen w-full overflow-hidden bg-[#0f0f0f]"
     >
-      {/* Underneath Layer: Power Section (Revealed via Aperture) */}
-      <div className="power-info bg-background absolute inset-0 z-0 flex h-screen min-h-screen w-full flex-col p-5 lg:flex-row lg:gap-10">
-        <div className="border-border h-full basis-1/2 border">
-          <img src={power} className="h-full w-full" alt="power grid" />
-        </div>
+      {/* Inline SVG Grid Background (replaces bg-hero CSS) */}
+      <svg
+        ref={gridSvgRef}
+        className="pointer-events-none absolute inset-0 h-full w-full"
+        viewBox="0 0 1728 1117"
+        preserveAspectRatio="xMidYMid slice"
+        fill="none"
+      >
+        {/* Background fill */}
+        <rect width="1728" height="1117" fill="#0f0f0f" />
 
-        {/* Power Gen */}
-        <div className="border-border flex h-[50vh] flex-col border lg:h-full lg:basis-1/2">
-          {/* 3D border */}
-          <div
-            style={{
-              padding: "1px",
-              background:
-                "linear-gradient(135deg, rgba(255,255,255,0.30) 0%, rgba(255,255,255,0.08) 40%, rgba(0,0,0,0.35) 100%)",
-            }}
-          >
-            <div
-              className="bg-foreground p-3 lg:p-10"
-              style={{
-                boxShadow:
-                  /* inner top highlight */ "inset 0 5px 7px rgba(255,255,255,0.18)," +
-                  /* inner left highlight */ "inset 0 0 0 rgba(0, 0, 0,0)," +
-                  /* inner bottom shadow */ "inset 0 -3px 0 rgba(0,0,0,0.45)," +
-                  /* inner right shadow */ "inset 0 0 0 rgba(0,0,0,0)," +
-                  /* outer depth / lift */ "0 8px 32px rgba(0,0,0,0.55)",
-              }}
-            >
-              <div className="bg-foreground p-3 lg:p-10">
-                <h2 className="space text-2xl font-medium tracking-tight lg:text-3xl">
-                  Power Generation
-                </h2>
+        {/* ── Horizontal grid lines ── */}
+        {horizontalLines.map((line, i) => (
+          <line
+            key={`h-${i}`}
+            x1={line.len}
+            y1={line.y}
+            x2="0"
+            y2={line.y}
+            stroke="#ffffff"
+            strokeOpacity="0.15"
+          />
+        ))}
 
-                <p className="mt-5 text-xs leading-relaxed lg:text-sm">
-                  Every cluster starts with a solar microgrid — generating ~250
-                  kWh a day, enough to power 30 homes around the clock. It's not
-                  a side effect of the compute business; it's the foundation
-                  everything else runs on, and the reason the electricity bill
-                  for AI is close to zero.
-                </p>
-              </div>
-            </div>
-          </div>
+        {/* ── Diagonal lines A (↘ direction) ── */}
+        {diagonalLinesA.map((line, i) => (
+          <line
+            key={`da-${i}`}
+            x1={line.x1}
+            y1={line.y1}
+            x2={line.x2}
+            y2={line.y2}
+            stroke="#ffffff"
+            strokeOpacity="0.15"
+          />
+        ))}
 
-          <div className="relative mt-auto py-10 lg:py-20">
-            <div className="absolute top-0 left-0 flex h-full w-1.25 flex-col justify-between">
-              <div className="bg-primary basis-[60%]" />
+        {/* ── Diagonal lines B (↙ direction, matrix-transformed) ── */}
+        {diagonalLinesB.map((line, i) => (
+          <line
+            key={`db-${i}`}
+            x1="0"
+            y1="-0.5"
+            x2="2073"
+            y2="-0.5"
+            transform={`matrix(0.5,-0.866025,-0.866025,-0.5,${line.tx},${line.ty})`}
+            stroke="#ffffff"
+            strokeOpacity="0.15"
+          />
+        ))}
 
-              <div className="basis-[15%] bg-white" />
+        {/* ── Static green accent marks ── */}
+        {greenAccents.map((accent, i) => (
+          <path
+            key={`ga-${i}`}
+            d={accent.d}
+            stroke="#14ee05"
+            strokeWidth="2"
+            strokeLinecap="round"
+          />
+        ))}
 
-              <div className="basis-[15%] bg-white" />
-            </div>
-            <AnimatedText
-              as="h2"
-              text={"Solar that lights up\nhomes, first."}
-              className="space pr-2 text-end text-2xl font-medium tracking-tight capitalize lg:ml-[50%] lg:text-start lg:text-3xl"
-            />
-          </div>
-        </div>
-      </div>
+        {/* ── Animated pulse segments on horizontal tracks ── */}
+        {horizontalLines.map((line, i) => (
+          <line
+            key={`hp-${i}`}
+            className="grid-pulse"
+            x1="0"
+            y1={line.y}
+            x2={line.len}
+            y2={line.y}
+            stroke="#14ee05"
+            strokeWidth="3"
+            strokeOpacity="0.6"
+            strokeLinecap="round"
+          />
+        ))}
 
-      
+        {/* ── Animated pulse segments on diagonal A tracks ── */}
+        {diagonalLinesA.map((line, i) => (
+          <line
+            key={`dap-${i}`}
+            className="grid-pulse"
+            x1={line.x1}
+            y1={line.y1}
+            x2={line.x2}
+            y2={line.y2}
+            stroke="#14ee05"
+            strokeWidth="3"
+            strokeOpacity="0.5"
+            strokeLinecap="round"
+          />
+        ))}
+
+        {/* ── Animated pulse segments on diagonal B tracks ── */}
+        {diagonalLinesB.map((line, i) => (
+          <line
+            key={`dbp-${i}`}
+            className="grid-pulse"
+            x1="0"
+            y1="-0.5"
+            x2="2073"
+            y2="-0.5"
+            transform={`matrix(0.5,-0.866025,-0.866025,-0.5,${line.tx},${line.ty})`}
+            stroke="#14ee05"
+            strokeWidth="3"
+            strokeOpacity="0.5"
+            strokeLinecap="round"
+          />
+        ))}
+      </svg>
+
+      {/* Underneath Layer: Benefits Section (Revealed via Aperture) */}
+      <Benefits />
+
       {/* Foreground Layer: Hero Dark Overlay with SVG Mask Aperture */}
       <div
         ref={heroOverlayRef}
         className="pointer-events-none absolute inset-0 z-10 h-full w-full"
       >
-        {/* Dark backdrop that stretches its clip-path to the screen corners (Podium-style) */}
         <div
           ref={darkBackdropRef}
           className="absolute inset-0 h-full w-full bg-[#0f0f0f]"
@@ -335,7 +452,6 @@ const Hero = () => {
         ref={heroContentRef}
         className="pointer-events-none absolute inset-0 z-20 flex h-full w-full flex-col justify-end p-5 md:p-14"
       >
-        {/* Bottom Hero Write Up & Scroll Cue */}
         <div className="relative flex w-full flex-col items-start justify-between gap-y-10 md:flex-row md:items-end">
           <AnimatedText
             as="h1"

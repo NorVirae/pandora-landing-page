@@ -7,7 +7,7 @@ import AnimatedText from "./components/animatedText";
 
 const Grid = () => {
   return (
-    <section id="benefits" className="relative z-40 bg-background p-5">
+    <section id="benefits" className="relative z-1 bg-background p-5">
       {/* Pandora Node */}
       <div className="grid-area relative isolate h-[50vh] rounded-b-lg lg:h-screen">
         <AnimatedText
