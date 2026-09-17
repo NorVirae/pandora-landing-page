@@ -48,7 +48,7 @@
 .grid-info {
   background-image: linear-gradient(
     to bottom,
-    #14141467 0%,
+    #14141400 0%,
     #141414 80%,
     #141414
   );
@@ -103,4 +103,3 @@ html {
   scrollbar-width: auto;
   scrollbar-color: var(--primary) var(--background);
 }
-

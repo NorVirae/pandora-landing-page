@@ -35,16 +35,7 @@ const diagonalLinesB = [
   { tx: -27, ty: 1596.27 },
 ];
 
-// Small green accent segments from the original SVG
-const greenAccents = [
-  { d: "M431 0 L465.5 59.7558" },
-  { d: "M1521 925 L1452 925" },
-  { d: "M1335 450 L1266 450" },
-  { d: "M676.5 988 L642 1047.76" },
-  { d: "M1311.5 198 L1277 257.756" },
-  { d: "M710.5 319 L676 378.756" },
-  { d: "M152 680 L83 680" },
-];
+
 
 const Hero = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -73,7 +64,7 @@ const Hero = () => {
 
         gsap.set(pulse, {
           strokeDasharray: `${segLen} ${pathLength}`,
-          strokeDashoffset: pathLength,
+          strokeDashoffset: segLen,
         });
 
         gsap.to(pulse, {
@@ -81,8 +72,7 @@ const Hero = () => {
           duration: 4 + (i % 3) * 1.5,
           ease: "none",
           repeat: -1,
-          yoyo: true,
-          delay: i * 0.6,
+          delay: i * 0.45,
         });
       });
 
@@ -257,16 +247,6 @@ const Hero = () => {
           />
         ))}
 
-        {/* ── Static green accent marks ── */}
-        {greenAccents.map((accent, i) => (
-          <path
-            key={`ga-${i}`}
-            d={accent.d}
-            stroke="#14ee05"
-            strokeWidth="2"
-            strokeLinecap="round"
-          />
-        ))}
 
         {/* ── Animated pulse segments on horizontal tracks ── */}
         {horizontalLines.map((line, i) => (
@@ -328,7 +308,7 @@ const Hero = () => {
       >
         <div
           ref={darkBackdropRef}
-          className="absolute inset-0 h-full w-full bg-[#0f0f0f]"
+          className="absolute left-1/2 top-1/2 h-5/12 w-5/12 -translate-x-1/2 -translate-y-1/2 bg-background rounded-full"
           style={{ willChange: "clip-path" }}
         />
         <svg

@@ -32,7 +32,15 @@ const Navbar = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <button className="text-background flex w-fit cursor-pointer items-center rounded-lg bg-white px-2 py-2 font-medium lg:px-3">
+            <button
+              className="text-background border flex w-fit cursor-pointer items-center rounded-lg bg-white px-2 py-2 font-medium lg:px-3"
+              style={{
+                boxShadow:
+                  "0 0 0 0 rgba(0,0,0,1)," +
+                  "inset 0 -4px 0px rgba(0,0,0,0.5)," +
+                  "0 8px 32px rgba(0,0,0,0.35)",
+              }}
+            >
               Book A Call
             </button>
           </a>
