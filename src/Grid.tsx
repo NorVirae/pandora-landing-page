@@ -7,12 +7,12 @@ import AnimatedText from "./components/animatedText";
 
 const Grid = () => {
   return (
-    <section id="benefits" className="relative z-1 bg-background p-5">
+    <section id="benefits" className="bg-background relative z-1 p-5">
       {/* Pandora Node */}
       <div className="grid-area relative isolate h-[50vh] rounded-b-lg lg:h-screen">
         <AnimatedText
           as="p"
-          text={"One node. Five ways it earns.\nHere's what it puts out."}
+          text={"One node.\n Five value engines."}
           className="space pt-10 text-center text-2xl font-medium tracking-tight capitalize lg:text-5xl"
           stagger={0.05}
         />
@@ -37,13 +37,13 @@ const Grid = () => {
           <div className="grid-info absolute bottom-0 left-0 h-1/3 w-full px-4 py-3 lg:h-1/4 lg:px-8">
             <AnimatedText
               as="h2"
-              text="250KWh generated per day"
+              text="250KWh generated per day per cluster"
               className="space text-xl font-medium lg:text-2xl"
               stagger={0.04}
             />
 
             <span className="text-sm lg:text-base">
-              Enough to help keep 6 homes running around the clock.
+              Enough to help keep 30 homes running around the clock.
             </span>
           </div>
         </article>

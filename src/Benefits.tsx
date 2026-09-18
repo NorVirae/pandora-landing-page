@@ -2,7 +2,9 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import power from "./assets/power.webp";
 import compute from "./assets/compute.webp";
 import agent from "./assets/agent.webp";
+import swarm from "./assets/swarm.webp";
 import arrow from "./assets/arrow.svg";
+import enterprise from "./assets/enterprise.webp"
 import AnimatedText from "./components/animatedText";
 
 const cardShadow =
@@ -33,6 +35,21 @@ const benefits = [
     desc: "On top of that compute, we run and host AI agents that do real jobs: applying to jobs, answering customer support tickets, tutoring students — thousands of agents per node, each costing fractions of a cent to run.",
     tagline: "AI agents, live and working, not just infrastructure.",
     img: agent,
+  },
+  {
+    index: 3,
+    title: "Swarm Capability",
+    desc: "A single node handles a single region. The network handles anything. When demand outgrows one cluster, Pandora distributes the load across every node on the grid and absorbs it. It means each cluster we build doesn't just serve the street it sits on - it makes every other cluster in the network stronger.",
+    tagline: "Every node makes the network stronger.",
+    img: swarm,
+  },
+
+  {
+    index: 4,
+    title: "Enterprise-Grade Agentic Services",
+    desc: "A bank can't send its customer records to a server on another continent. Neither can a hospital, or a ministry. Pandora runs enterprise agents on dedicated, isolated capacity inside their own jurisdiction. Compliance isn't a feature we bolted on afterwards - it's where the hardware physically sits.",
+    tagline: "AI that stays where your data lives.",
+    img: enterprise,
   },
 ];
 
