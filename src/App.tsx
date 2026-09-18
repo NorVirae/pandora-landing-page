@@ -3,6 +3,7 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import Lenis from "lenis";
 import Hero from "./Hero";
 import Grid from "./Grid";
+import Project from "./Project";
 import Advantages from "./Advantages";
 import Team from "./Team";
 import Cta from "./Cta";
@@ -27,6 +28,7 @@ function App() {
       <Navbar />
       <Hero />
       <Grid />
+      <Project/>
       <Advantages />
       <Team />
       <Cta />

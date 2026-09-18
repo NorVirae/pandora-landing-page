@@ -34,6 +34,11 @@
   color: var(--background);
 }
 
+.space3 {
+  font-family: "Space Grotesk", sans-serif;
+  font-optical-sizing: auto;
+}
+
 .grid-area {
   background-image: linear-gradient(
     to bottom,

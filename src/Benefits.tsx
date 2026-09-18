@@ -194,8 +194,8 @@ const Benefits = () => {
 
                 {/* Bottom Tagline & Indicator Bar */}
                 <div className="relative mt-auto py-4 lg:py-10">
-                  <div className="absolute top-0 left-0 flex h-full w-1.25 flex-col justify-between">
-                    {[0, 1, 2].map((barIndex) => (
+                  <div className="absolute top-0 left-0 flex h-full w-1.25 flex-col justify-between gap-1">
+                    {[0, 1, 2,3,4].map((barIndex) => (
                       <div
                         key={barIndex}
                         className={`w-full transition-all duration-300 ${
