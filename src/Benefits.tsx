@@ -76,7 +76,7 @@ const Benefits = () => {
 
   return (
     <section
-      className="power-info absolute bg-background/80 inset-0 z-0 flex h-screen w-full items-center justify-center overflow-hidden select-none perspective-[1400px]"
+      className="power-info bg-background/80 absolute inset-0 z-0 flex h-screen w-full items-center justify-center overflow-hidden select-none perspective-[1400px]"
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
     >
@@ -183,7 +183,7 @@ const Benefits = () => {
                         key={barIndex}
                         className={`w-full transition-all duration-300 ${
                           barIndex === benefit.index
-                            ? "basis-[60%] bg-primary"
+                            ? "bg-primary basis-[60%]"
                             : "basis-[15%] bg-white"
                         }`}
                       />
@@ -209,7 +209,7 @@ const Benefits = () => {
             handlePrev();
           }}
           aria-label="Previous Benefit"
-          className="hover:text-primary absolute top-1/2 left-3 z-30 -translate-y-1/2 cursor-pointer rounded-full bg-neutral-600/30 p-4 font-mono text-[11px] text-white/90 shadow-2xl backdrop-blur-xl transition-all duration-300 active:scale-95"
+          className="hover:text-primary absolute top-1/2 left-3 z-30 -translate-y-1/2 cursor-pointer rounded-full bg-neutral-600/30 p-3 font-mono text-[11px] text-white/90 shadow-2xl backdrop-blur-xl transition-all duration-300 active:scale-95 lg:p-4"
         >
           <img src={arrow} className="rotate-180 lg:h-6" alt="previous" />
         </button>
@@ -221,7 +221,7 @@ const Benefits = () => {
             handleNext();
           }}
           aria-label="Next Benefit"
-          className="hover:text-primary absolute top-1/2 right-3 z-30 -translate-y-1/2 cursor-pointer rounded-full bg-neutral-600/30 p-4 font-mono text-[11px] text-white/90 shadow-2xl backdrop-blur-xl transition-all duration-300 active:scale-95"
+          className="hover:text-primary absolute top-1/2 right-3 z-30 -translate-y-1/2 cursor-pointer rounded-full bg-neutral-600/30 p-3 font-mono text-[11px] text-white/90 shadow-2xl backdrop-blur-xl transition-all duration-300 active:scale-95 lg:p-4"
         >
           <img src={arrow} className="lg:h-6" alt="previous" />
         </button>
