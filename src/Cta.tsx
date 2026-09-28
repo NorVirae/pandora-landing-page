@@ -1,9 +1,10 @@
 import Btn from "./components/btn";
-import tlAnchor from "./assets/tl.svg"
+import tlAnchor from "./assets/tl.svg";
 import blAnchor from "./assets/bl.svg";
 import trAnchor from "./assets/tr.svg";
 import brAnchor from "./assets/br.svg";
 import AnimatedText from "./components/animatedText";
+import Btn2 from "./components/btn-2";
 
 const Cta = () => {
   return (
@@ -27,7 +28,7 @@ const Cta = () => {
       />
       <img
         src={brAnchor}
-        className="pointer-events-none absolute bottom-0 right-0 w-2/5"
+        className="pointer-events-none absolute right-0 bottom-0 w-2/5"
         alt="tl-anchor"
       />
       <div className="bg-cta"></div>
@@ -42,8 +43,10 @@ const Cta = () => {
         Whether you're renting compute, deploying an agent, or exploring a
         partnership, the infrastructure is live and ready for you.
       </p>
-      <Btn />
-
+      <div className="flex gap-x-4 items-center">
+        <Btn />
+        <Btn2 /> 
+      </div>
       <span className="absolute bottom-5 text-sm">
         ©2026, Pandora. All rights reserved
       </span>

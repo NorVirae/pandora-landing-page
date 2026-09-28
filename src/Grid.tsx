@@ -34,7 +34,7 @@ const Grid = () => {
             className="h-full w-full object-cover"
             alt="daily power generation"
           />
-          <div className="grid-info absolute bottom-0 left-0 h-1/3 w-full px-4 py-3 lg:h-1/4 lg:px-8">
+          <div className="grid-info absolute bottom-0 left-0 h-fit w-full px-4 py-3 lg:h-1/4 lg:px-8">
             <AnimatedText
               as="h2"
               text="250KWh generated per day per cluster"
@@ -55,7 +55,7 @@ const Grid = () => {
             className="h-full w-full object-cover"
             alt="daily power generation"
           />
-          <div className="grid-info absolute bottom-0 left-0 h-1/3 w-full px-4 py-3 lg:h-1/4 lg:px-8">
+          <div className="grid-info absolute bottom-0 left-0 h-fit w-full px-4 py-3 lg:h-1/4 lg:px-8">
             <AnimatedText
               as="h2"
               text="10,000+ AI Agents/Node"
@@ -76,7 +76,7 @@ const Grid = () => {
             className="h-full w-full object-cover"
             alt="daily power generation"
           />
-          <div className="grid-info absolute bottom-0 left-0 h-1/3 w-full px-4 py-3 lg:h-1/4 lg:px-8">
+          <div className="grid-info absolute bottom-0 left-0 h-fit w-full px-4 py-3 lg:h-1/4 lg:px-8">
             <AnimatedText
               as="h2"
               text="30–40 concurrent AI sessions"
@@ -97,7 +97,7 @@ const Grid = () => {
             className="h-full w-full object-cover"
             alt="daily power generation"
           />
-          <div className="grid-info absolute bottom-0 left-0 h-1/3 w-full px-4 py-3 lg:h-1/4 lg:px-8">
+          <div className="grid-info absolute bottom-0 left-0 h-fit w-full px-4 py-3 lg:h-1/4 lg:px-8">
             <AnimatedText
               as="h2"
               text="2–4 Sec At Light Load"

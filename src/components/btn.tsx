@@ -17,9 +17,9 @@ const Btn = ({ className = "" }: { className?: string }) => {
               "inset 0 -6px 2px rgba(0,0,0,0.75)," +
               "0 8px 32px rgba(0,120,0,0.35)",
           }}
-          className="text-background space2 bg-primary flex w-fit cursor-pointer items-center rounded-lg px-4 py-3 font-medium lg:px-5 border"
+          className="text-background space2 bg-primary flex w-fit cursor-pointer items-center rounded-lg border px-4 py-3 font-medium lg:px-5"
         >
-          Book A Call
+          Join Waitlist
         </button>
       </a>
     </div>
